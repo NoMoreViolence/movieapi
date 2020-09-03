@@ -6,6 +6,7 @@ import { Pane, Heading, SelectMenu, Button, SearchInput } from 'evergreen-ui';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 import { MovieList } from './MovieList';
+import { MovieName } from './MovieName';
 
 function App() {
   const [movieItems, setMovieItems] = useState(null);
@@ -15,10 +16,6 @@ function App() {
       'https://yts.mx/api/v2/list_movies.json?sort_by=rating'
     );
     setMovieItems(response.data.data.movies);
-  };
-
-  const submit = () => {
-    setMovieItems(movieItems.filter((movies) => movies.title === text));
   };
 
   useEffect(() => {
@@ -34,7 +31,7 @@ function App() {
         <Pane display="flex" padding={16} background="dark" borderRadius={3}>
           <Pane flex={1} alignItems="center" display="flex">
             <Heading display="contents" color={'white'} size={400}>
-              <img style={{ marginRight: 4 }} src="./glogow.svg" />
+              <img style={{ marginRight: 4 }} src="/glogow.svg" alt="logo" />
               GHOST MOVIE
             </Heading>
           </Pane>
@@ -123,6 +120,9 @@ function App() {
           </ContainerLeft>
           <MovieList movieItems={movieItems} text={text} genres={genres} />
         </Row>
+      </Route>
+      <Route path="/MovieName/:id">
+        <MovieName />
       </Route>
     </Pane>
   );

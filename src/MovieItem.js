@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { MovieName } from './MovieName';
 
 export const MovieItem = ({ id, title, contents, src }) => {
+  console.log(id);
   return (
     <Pane
       elevation={3}
@@ -32,7 +33,6 @@ export const MovieItem = ({ id, title, contents, src }) => {
         </Display>
       </Subhead>
       <Button>
-        <Route path="/MovieName/:id" component={MovieName} />
         <Link
           to={{
             pathname: `/MovieName/${id}`,

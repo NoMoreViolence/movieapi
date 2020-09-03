@@ -30,6 +30,7 @@ export const MovieList = ({ movieItems, text, genres }) => {
             return (
               <MovieItem
                 key={movieItem.id}
+                id={movieItem.id}
                 title={movieItem.title}
                 contents={movieItem.rating}
                 src={movieItem.medium_cover_image}
